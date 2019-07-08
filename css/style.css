@@ -1,3 +1,8 @@
+body {
+    font-size: 16px;
+    padding: 10px;
+}
+
 .wrapper {
     display: flex;
     flex-flow: row wrap;
@@ -17,6 +22,7 @@
     -o-transition: transform 0.5s ease-out;
     transition: transform 0.5s ease-out;
     transform-style: preserve-3d;
+    transform-origin: right center;
 }
 
 .card div {
@@ -35,12 +41,20 @@
 .card .front {
     background: url("../images/front-card.png") center no-repeat;
     transform: rotateY(180deg);
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #333;
+    color: darkred;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .flipped {
-    transform: rotateY(-180deg);
-    -webkit-transform: rotateY(-180deg);
-    -moz-transform: rotateY(-180deg);
-    -ms-transform: rotateY(-180deg);
-    -o-transform: rotateY(-180deg);
+    transform: translateX(-100%) rotateY(-180deg);
+    -webkit-transform: translateX(-100%) rotateY(-180deg);
+    -moz-transform: translateX(-100%) rotateY(-180deg);
+    -ms-transform: translateX(-100%) rotateY(-180deg);
+    -o-transform: translateX(-100%) rotateY(-180deg);
 }

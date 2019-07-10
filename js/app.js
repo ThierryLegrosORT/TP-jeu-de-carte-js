@@ -49,12 +49,16 @@ function addClickListener(card) {
 
         if (firstFlippedCard) {
             if (firstFlippedCard.textContent === this.textContent) {
-                console.log('ok');
+                firstFlippedCard = null;
             } else {
-                console.log('pas ok');
+                setTimeout(() => {
+                    firstFlippedCard.classList.remove('flipped');
+                    this.classList.remove('flipped');
+                    firstFlippedCard = null;
+
+                }, 1000);
             }
 
-            firstFlippedCard = null;
         } else {
 
             firstFlippedCard = this;

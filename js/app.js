@@ -13,10 +13,28 @@ const tabRandomNB = [];
 let firstFlippedCard = null;
 
 function init() {
+    loadSound();
+
     for (let i = 0; i < NB_CARDS; i++) {
         createCard();
     }
 }
+
+function loadSound() {
+    const bgSound = document.createElement('audio');
+    const youWonSound = document.createElement('audio');
+
+    bgSound.src = 'sound/jungle.mp3';
+    youWonSound.src = 'sound/you-won.mp3';
+
+    bgSound.autoplay = true;
+    bgSound.volume = 0.;
+
+    document.body.appendChild(bgSound);
+    document.body.appendChild(youWonSound);
+}
+
+confirm('Vous avez gagné ! Voulez-vous rejouer ?');
 
 function createCard() {
     const card = document.createElement('div');
@@ -55,7 +73,6 @@ function addClickListener(card) {
                     firstFlippedCard.classList.remove('flipped');
                     this.classList.remove('flipped');
                     firstFlippedCard = null;
-
                 }, 1000);
             }
 

@@ -35,7 +35,7 @@ function createCard() {
     card.appendChild(backCard);
     card.appendChild(frontCard);
 
-    card.classList.add('card', 'flipped' /* TMP */ );
+    card.classList.add('card');
     // card.className = 'card';
     backCard.classList.add('back');
     frontCard.classList.add('front');

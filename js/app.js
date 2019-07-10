@@ -13,7 +13,7 @@
 //     clearInterval(myInterval);
 // }, 30000);
 
-const NB_CARDS = 6;
+const NB_CARDS = 10;
 
 const cards = [];
 const tabRandomNB = [];
@@ -25,36 +25,41 @@ function init() {
     }
 }
 
+
 function createCard() {
     const card = document.createElement('div');
     const backCard = document.createElement('div');
     const frontCard = document.createElement('div');
 
-    // card.classList.toggle('flipped'); //TMP
 
     card.appendChild(backCard);
     card.appendChild(frontCard);
 
-    card.className = 'card';
+    card.classList.add('card', 'flipped' /* TMP */ );
+    // card.className = 'card';
     backCard.classList.add('back');
     frontCard.classList.add('front');
 
     cards.push(card);
-
-    handleCard(cards[cards.length - 1]);
+    handleCard(cards.length - 1);
 
     document.querySelector('.wrapper').appendChild(card);
 }
 
-function handleCard(card) {
-    let randomNB;
+function handleCard(index) {
+    const card = cards[index];
+    let randomNB = tabRandomNB[tabRandomNB.length - 1];
 
-    do {
-        randomNB = Math.ceil(Math.random() * 20);
+    if (index % 2 === 0) {
+        do {
+            randomNB = Math.ceil(Math.random() * 20);
 
-    } while (tabRandomNB.includes(randomNB));
+        } while (tabRandomNB.includes(randomNB));
 
-    tabRandomNB.push(randomNB);
+        tabRandomNB.push(randomNB);
+
+    }
+
     card.querySelector('.front').textContent = randomNB;
 
     card.addEventListener('click', function() {
